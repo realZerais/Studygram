@@ -23,9 +23,42 @@ const getAllMaterials = async (req,res)=>{
 } 
 
 
-//await db.query('SELECT * from materials')
-// const createMaterial = (req, res) =>{
-    
+// const createMaterial = async (req, res) =>{
+//     const {title, date, content} = req.body;
+
+//     try {
+//         await db.query('INSERT INTO materials (material_title, creation_date, material_content) VALUES ($1, $2, $3, $4)',
+//          [title, date, content]);
+//         res.status(201).send('Material added successfully');
+//     } catch (error) {
+//         console.error(error);
+//         res.status(500).json({ error: 'Internal Server Error' });
+//     }
 // }
 
-module.exports =  {getAllMaterials};
+
+const createMaterial = async (req, res) => {
+    try {
+        const materials = req.body;
+
+        // Assuming materials is an array of objects
+        for (const material of materials) {
+            const { title, date, content } = material;
+
+            await db.query(
+                'INSERT INTO materials (material_title, creation_date, material_content) VALUES ($1, $2, $3)',
+                [title, date, content]
+            );
+        }
+
+        res.status(201).send('Materials added successfully');
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
+
+
+
+
+module.exports =  {getAllMaterials, createMaterial};

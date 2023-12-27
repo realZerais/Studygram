@@ -42,8 +42,10 @@
                     <h1>MATERIAL TITLE: {material.material_title}</h1>
                     <h1>DATE POSTED: {material.creation_date}</h1>
             </div>
-            
-                    <p>{material.material_content}</p>
+            <div>
+                <p>{material.material_content}</p>
+            </div>
+                    
                 
            
             {/each}

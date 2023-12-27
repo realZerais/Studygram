@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const {getAllMaterials} = require("../controllers/materialsController.js") 
+const {getAllMaterials, createMaterial} = require("../controllers/materialsController.js") 
 
 const db = require('../config/db');
 
@@ -16,6 +16,8 @@ const db = require('../config/db');
 
 
 router.get("/", getAllMaterials);
+
+router.post("/", createMaterial);
 
 
 
