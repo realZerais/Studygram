@@ -1,6 +1,8 @@
 const express = require('express');
-const { Pool } = require('pg');
-const cors = require('cors'); // Import the cors middleware
+const cors = require('cors');
+
+
+const materialRoutes = require("./routes/materials");
 
 
 const app = express();
@@ -17,29 +19,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 
-// Set up PostgreSQL connection pool
-const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'studygram',
-  password: 'sasageyo',
-  port: 5432, // Change the port if your PostgreSQL server is running on a different port
-});
-
-// Test the database connection
-pool.query('SELECT * from tasks', (err, res) => {
-  if (err) {
-      console.error('Error connecting to the database:', err);
-  } else {
-      console.log(res.rows);
-  }
-});
-
-
-
+//ROUTES
 app.get('/', (req, res) => {
-    res.json({ info: 'Node.js, Express, and Postgres API' })
+  res.json({ info: 'Node.js, Express, and Postgres API' });
 });
+
+app.use('/materials', materialRoutes);
 
 
 

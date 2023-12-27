@@ -4,16 +4,9 @@ const { Pool } = require('pg');
 const pool = new Pool({
     user: 'postgres',
     host: 'localhost',
-    database: 'test',
+    database: 'studygram',
     password: 'sasageyo',
-    port: 5432, // Change the port if your PostgreSQL server is running on a different port
+    port: 5432, 
 });
 
-// Test the database connection
-pool.query('SELECT * from users', (err, res) => {
-if (err) {
-    console.error('Error connecting to the database:', err);
-} else {
-    console.log(res.rows);
-}
-});
+module.exports = pool;
