@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const {getAllMaterials, getMaterial, createMaterial, deleteAllMaterials, deleteMaterial} = require("../controllers/materialsController.js") 
+const {getAllMaterials, getMaterial, createMaterial, deleteAllMaterials, deleteMaterial, editMaterial} = require("../controllers/materialsController.js") 
 
 const db = require('../config/db');
 
@@ -15,7 +15,7 @@ router.delete("/", deleteAllMaterials);
 
 router.delete("/:id", deleteMaterial);
 
-router.put("/:id");
+router.put("/:id", editMaterial);
 
 
 
