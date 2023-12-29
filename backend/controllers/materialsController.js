@@ -22,6 +22,22 @@ const getAllMaterials = async (req,res)=>{
  
 } 
 
+const getMaterial = async (req, res) =>{
+    const {id} = req.params;
+
+    try {
+    
+        const material = await db.query(`SELECT * from materials WHERE material_id = ${id}`);
+        console.log(material);
+        res.status(200).json(material.rows);
+    
+    } catch (error) {
+        res.status(400).json(error.message)
+    
+    }
+
+}
+
 
 // const createMaterial = async (req, res) =>{
 //     const {title, date, content} = req.body;
@@ -58,7 +74,32 @@ const createMaterial = async (req, res) => {
     }
 };
 
+//WARNING!!!!!!!! DONT USE THIS ROUTE PLSSS
+const deleteAllMaterials = async (req, res) =>{
+    try {
+        await db.query('DELETE FROM materials');
+
+        res.status(200).send('All materials are deleted');
+        
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
+const deleteMaterial = async (req, res) =>{
+    const {id} = req.params;
+
+    try {
+    
+        const materials = await db.query(`DELETE * FROM materials WHERE material_id = ${id}`);
+        console.log(materials.rows);
+        res.status(200).send(`Material ${id} was deleted. It was titled ${materials.rows.material_title}`);
+    } catch (error) {
+        res.status(400).json(error.message)
+    
+    }
+}
 
 
-
-module.exports =  {getAllMaterials, createMaterial};
+module.exports =  {getAllMaterials, getMaterial, createMaterial, deleteAllMaterials, deleteMaterial};
