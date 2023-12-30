@@ -80,11 +80,6 @@ const editMaterial = async (req, res) => {
     const {id} = req.params;
     const materials = req.body;
 
-
-    
-  
-
-
     try {
         for(const material  of materials){
             const content = material.material_content;
