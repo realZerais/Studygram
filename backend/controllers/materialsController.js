@@ -4,7 +4,7 @@ const getAllMaterials = async (req,res)=>{
     try {
     
         const materials = await db.query('SELECT * from materials');
-        console.log(materials.rows);
+        // console.log(materials.rows);
         res.status(200).json(materials.rows);
     
     } catch (error) {

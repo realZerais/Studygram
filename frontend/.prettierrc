@@ -6,7 +6,7 @@
 	"tabWidth": 4,
 	"useTabs": true,
 	"svelteSortOrder": "styles-scripts-markup",
-	"svelteBracketNewLine": false,
+	"svelteBracketNewLine": true,
 	"svelteAllowShorthand": true,
 	"svelteIndentScriptAndStyle": true,
 	"svelteInlineAttributes": true

@@ -1,12 +1,5 @@
 <script>
-	const nowDate = () => {
-		const currentDate = new Date();
-
-		const year = currentDate.getFullYear();
-		const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Months are zero-based
-		const day = String(currentDate.getDate()).padStart(2, '0');
-		return `${year}-${month}-${day}`;
-	};
+	import { nowDate } from '../utils.js';
 
 	// console.log(nowDate)
 	let title = '';
@@ -48,7 +41,8 @@
 
 <form
 	on:submit|preventDefault={handleSubmit}
-	class="h-[40vh] w-[60%] flex flex-col gap-5 justify-center items-center border-black border-2 rounded-md">
+	class="h-[40vh] w-[60%] flex flex-col gap-5 justify-center items-center border-black border-2 rounded-md"
+>
 	<h1>UPLOAD MATERIAL</h1>
 	<p>Material TITLE:</p>
 	<!-- <p>{title}</p> -->
@@ -57,12 +51,14 @@
 		name="title"
 		bind:value={title}
 		required
-		class="h-[20%] border-2 rounded-sm border-black" />
+		class="h-[20%] border-2 rounded-sm border-black"
+	/>
 	<input
 		type="text"
 		name="content"
 		bind:value={content}
 		placeholder="What's on your mind?"
-		class="h-[50%] w-[70%] border-2 rounded-sm border-black" />
+		class="h-[50%] w-[70%] border-2 rounded-sm border-black"
+	/>
 	<button>UPLOAD</button>
 </form>
