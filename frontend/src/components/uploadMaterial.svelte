@@ -1,5 +1,5 @@
 <script>
-	import { nowDate } from '../utils.js';
+	import { nowDate } from '../utils/dateUtil.js';
 
 	// console.log(nowDate)
 	let title = '';

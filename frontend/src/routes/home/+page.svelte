@@ -4,11 +4,11 @@
 	// Comments and Ratings: Allow users to leave comments and rate the usefulness of study materials.
 
 	import UploadMaterial from '../../components/UploadMaterial.svelte';
-	import GetAllMaterial from '../../components/GetAllMaterials.svelte';
+	import Materials from '../../components/Materials.svelte';
 </script>
 
 <main class="flex flex-col justify-center items-center mt-2 gap-10">
 	<UploadMaterial />
 	<h1>FEED</h1>
-	<GetAllMaterial />
+	<Materials />
 </main>
